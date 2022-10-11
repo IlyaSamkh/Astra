@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+
+  prometheus:
+    image: /opt/prometheus/prom/prometheus:latest
+    volumes:
+      - ./prometheus:/etc/prometheus/
+    container_name: prometheus
+    hostname: prometheus
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - 9090:9090
+    restart: unless-stopped
+    networks:
+      - default

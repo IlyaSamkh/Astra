@@ -3,10 +3,29 @@
   become: true
   
   tasks:
+  # Manages apt-packages
   - name: Install a list of packages
     ansible.builtin.apt:
       pkg:
       - docker
       - docker-compose
+      - prometheus-node-exporter
       state: latest
       update_cache: yes
+
+  # Manages files and directories
+  - name: Create a directory for docker
+    ansible.builtin.file:
+      path: /opt/docker
+      state: directory
+
+  # Copy files to remote locations
+  - name: Copy docker directory
+    ansible.builtin.copy:
+      src: docker/
+      dest: /opt/docker
+
+  # Manage multi-container Docker applications with Docker Compose
+  - name: Docker-compose up
+    community.docker.docker_compose:
+      project_src: /opt/docker
