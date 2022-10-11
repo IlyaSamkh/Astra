@@ -1,0 +1,12 @@
+---
+- hosts: all
+  become: true
+  
+  tasks:
+  - name: Install a list of packages
+    ansible.builtin.apt:
+      pkg:
+      - docker
+      - docker-compose
+      state: latest
+      update_cache: yes
