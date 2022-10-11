@@ -1,17 +1,21 @@
-version: '3'
+version: '3.3'
 
+networks:
+  monitoring:
+    driver: bridge
+    
 services:
-
   prometheus:
-    image: /opt/prometheus/prom/prometheus:latest
-    volumes:
-      - ./prometheus:/etc/prometheus/
+    build: prometheus
     container_name: prometheus
-    hostname: prometheus
-    command:
-      - --config.file=/etc/prometheus/prometheus.yml
-    ports:
-      - 9090:9090
     restart: unless-stopped
     networks:
-      - default
+      - monitoring
+  grafana:
+    build: grafana
+    container_name: grafana
+    restart: unless-stopped
+    networks:
+      - monitoring
+    ports:
+      - "3000:3000"

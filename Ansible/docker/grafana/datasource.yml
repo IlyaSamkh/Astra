@@ -1,0 +1,18 @@
+# Grafana datasource
+apiVersion: 1
+
+datasources:
+  - name: My datasource
+    type: prometheus
+    access: proxy
+    orgId: 1
+    url: http://prometheus:9090
+  
+    jsonData:
+      sslmode: 'disable'
+      postgresVersion: 1200
+      timescaledb: false
+      secureJsonData:
+        password: ""
+    version: 1
+    editable: true
