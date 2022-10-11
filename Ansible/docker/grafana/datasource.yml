@@ -8,11 +8,9 @@ datasources:
     orgId: 1
     url: http://prometheus:9090
   
-    jsonData:
-      sslmode: 'disable'
-      postgresVersion: 1200
-      timescaledb: false
-      secureJsonData:
-        password: ""
-    version: 1
-    editable: true
+  jsonData:
+     graphiteVersion: "1.1"
+     tlsAuth: false
+     tlsAuthWithCACert: false
+  version: 1
+  editable: true

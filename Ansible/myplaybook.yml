@@ -1,10 +1,10 @@
 ---
 - hosts: all
-  become: true
+  become: yes
   
   tasks:
   # Manages apt-packages
-  - name: Install a list of packages
+  - name: Install a list of packages[docker, docker-compose, node-exporter]
     ansible.builtin.apt:
       pkg:
       - docker
@@ -21,7 +21,7 @@
 
   - name: Create a directory for prometheus
     ansible.builtin.file:
-      path: /opt/prometheus
+      path: /etc/prometheus
       state: directory  
 
   # Copy files to remote locations
@@ -33,9 +33,15 @@
   - name: Copy prometheus file
     ansible.builtin.copy:
       src: docker/prometheus
-      dest: /opt/prometheus
-      
+      dest: /etc/prometheus
+
+  - name: Copy grafana files
+    ansible.builtin.copy:
+      src: docker/grafana
+      dest: /etc/grafana/dashboards
+
   # Manage multi-container Docker applications with Docker Compose
   - name: Docker-compose up
     community.docker.docker_compose:
       project_src: /opt/docker
+      build: yes

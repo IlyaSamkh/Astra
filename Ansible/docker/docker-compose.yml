@@ -6,13 +6,15 @@ networks:
     
 services:
   prometheus:
-    build: prometheus
+    image: prom/prometheus
+    working_dir: /etc/prometheus
     container_name: prometheus
     restart: unless-stopped
     networks:
       - monitoring
   grafana:
-    build: grafana
+    image: grafana/grafana
+    working_dir: /etc/grafana
     container_name: grafana
     restart: unless-stopped
     networks:
