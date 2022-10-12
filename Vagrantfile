@@ -8,7 +8,7 @@ Vagrant.configure("2") do |config|
 #VirtualBox configuration
   config.vm.provider "virtualbox" do |v|
     v.name = "Ubuntu"
-    v.memory = 2560
+    v.memory = 4096
   end
 
 #Provisioning ansible

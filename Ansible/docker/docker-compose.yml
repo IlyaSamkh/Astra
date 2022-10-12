@@ -6,17 +6,19 @@ networks:
     
 services:
   prometheus:
-    image: prom/prometheus
-    working_dir: /etc/prometheus
+    build:
+      context: prometheus
+      dockerfile: DockerProm
     container_name: prometheus
-    restart: unless-stopped
+    restart: always
     networks:
       - monitoring
   grafana:
-    image: grafana/grafana
-    working_dir: /etc/grafana
+    build:
+      context: grafana
+      dockerfile: DockerGraf
     container_name: grafana
-    restart: unless-stopped
+    restart: always
     networks:
       - monitoring
     ports:

@@ -19,26 +19,11 @@
       path: /opt/docker
       state: directory
 
-  - name: Create a directory for prometheus
-    ansible.builtin.file:
-      path: /etc/prometheus
-      state: directory  
-
   # Copy files to remote locations
   - name: Copy docker directory
     ansible.builtin.copy:
       src: docker/
       dest: /opt/docker
-
-  - name: Copy prometheus file
-    ansible.builtin.copy:
-      src: docker/prometheus
-      dest: /etc/prometheus
-
-  - name: Copy grafana files
-    ansible.builtin.copy:
-      src: docker/grafana
-      dest: /etc/grafana/dashboards
 
   # Manage multi-container Docker applications with Docker Compose
   - name: Docker-compose up

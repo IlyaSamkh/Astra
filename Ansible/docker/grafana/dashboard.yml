@@ -1,14 +1,14 @@
-# Grafana dashboard
+#Grafana provision dashboard
 apiVersion: 1
+
 providers:
-- name: My Dashboard
-  org_id: 1
+- name: 'grafana'
+  orgId: 1
   folder: ''
-  type: 'file'
+  folderUid: ''
+  type: file
   disableDeletion: false
   editable: true
-  updateIntervalSeconds: 5
-  allowUiUpdates: true
+  updateIntervalSeconds: 10
   options:
-    path: /etc/grafana/dashboards
-    foldersFromFilesStructure: true
+    path: /etc/grafana/provisioning/dashboards

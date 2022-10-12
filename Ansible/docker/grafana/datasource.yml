@@ -1,13 +1,16 @@
-# Grafana datasource
 apiVersion: 1
 
-datasources:
-  - name: My datasource
-    type: prometheus
-    access: proxy
+deleteDatasources:
+  - name: prometheus
     orgId: 1
-    url: http://prometheus:9090
-  
+
+datasources:
+- name: prometheus
+  type: prometheus
+  access: proxy
+  orgId: 1
+  url: http://prometheus:9090
+ 
   jsonData:
      graphiteVersion: "1.1"
      tlsAuth: false
