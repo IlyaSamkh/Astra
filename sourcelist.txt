@@ -1,0 +1,15 @@
+https://www.vagrantup.com/docs/providers/virtualbox/configuration - VirtualBox configuration
+https://www.vagrantup.com/docs/provisioning/ansible - Provisioning ansible
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/apt_module.html - Manages apt-packages
+https://prometheus.io/docs/introduction/first_steps/#configuring-prometheus - Configuring Prometheus
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/file_module.html - Manages files and directories
+https://docs.ansible.com/ansible/latest/collections/ansible/builtin/copy_module.html - Copy files to remote locations
+https://docs.ansible.com/ansible/latest/collections/community/docker/docker_compose_module.html - Manage multi-container Docker applications with Docker Compose
+https://grafana.com/docs/grafana-cloud/quickstart/docker-compose-linux/
+https://www.vagrantup.com/docs/networking/forwarded_ports - Forwarded ports
+https://www.vagrantup.com/docs/networking/private_network - Private network
+https://medium.com/swlh/easy-grafana-and-docker-compose-setup-d0f6f9fcec13 - Grafana dashboard / Grafana datasource
+https://superuser.com/questions/1477291/grafana-provisioning-dashboards-in-docker - Grafana provision dashboard
+https://docs.docker.com/
+https://hub.docker.com/
+https://stackoverflow.com/
